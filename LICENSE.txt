@@ -1,4 +1,4 @@
-SleepTracker Diario de tus Sueños Source-Available License v1.0
+Sleep Quality Tracker Diario de tus Sueños Source-Available License v1.0
 Copyright (c) 2026 Juan Carlos Alcaraz.
 All Rights Reserved.
 
