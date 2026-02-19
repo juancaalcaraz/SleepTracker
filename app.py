@@ -14,7 +14,9 @@ predictor = SleepPredictor(MODEL_PATH)
 st.title("Sleep Quality Tracker")
 st.markdown(""" #### Guarda un historial de la calidad de tu sueño.          
             """)
-st.markdown("Sistema de uso personal solamente. No reemplaza una consulta médica.")
+st.warning(
+    "⚠️ Herramienta de uso personal. No reemplaza evaluación ni diagnóstico médico profesional."
+)
 
 st.subheader("1️⃣ Medición de Pulso")
 st.markdown(
@@ -51,10 +53,24 @@ if pulses > 0:
     st.info(f"Heart Rate estimado: {heart_rate} BPM ({hr_status})")
 #st.markdown("---")
 st.divider()
-#stress_level = st.slider("Nivel de estrés (1-10)", 1, 10)
 st.subheader("2️⃣ Variables de sueño")
-st.markdown("Ingresa la cantidad de horas que dormiste.")
-sleep_hours = st.number_input("Horas dormidas", min_value=0.0, max_value=12.0)
+st.markdown("Ingresa la cantidad de horas que dormiste (por ejemplo 7.5).")
+
+# Text input con placeholder
+sleep_input = st.text_input("Horas dormidas", placeholder="0.0")
+
+# Validar y convertir a float
+try:
+    sleep_hours = float(sleep_input) if sleep_input else None
+except ValueError:
+    sleep_hours = None
+    st.warning("Por favor ingresa un número válido de horas (por ejemplo 7.0 o 7.5).")
+
+# Validar rango
+if sleep_hours is not None:
+    if not (0.0 <= sleep_hours <= 12.0):
+        st.warning("Ingresa un número entre 0 y 12 horas.")
+        sleep_hours = None
 
 # Espacio visual
 st.markdown("---")
@@ -86,7 +102,7 @@ else:
 
     st.info(f"Nivel de estrés calculado: {stress_level} (escala 1–8)")
 
-can_predict = pulses > 0 and sleep_hours > 0
+can_predict = pulses > 0 and sleep_hours is not None
 if pulses == 0:
     st.warning("Por favor medí tu pulso antes de predecir.")
 st.markdown("### 🔎 Evaluación")
@@ -130,7 +146,7 @@ if history is not None and not history.empty:
     latest = history.iloc[-1]
 
     st.metric(
-        label="Última calidad de sueño registrada",
+        label="Calidad del último sueño registrado: ",
         value=latest["sleep_label"]
     )
 
