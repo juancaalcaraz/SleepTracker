@@ -12,7 +12,7 @@ import pandas as pd
 predictor = SleepPredictor(MODEL_PATH)
 
 st.title("Sleep Quality Tracker")
-st.markdown(""" #### Guarda un historial de la calidad de tu sueño.          
+st.markdown(""" ### -- Diario de tus sueños. --          
             """)
 st.warning(
     "⚠️ Herramienta de uso personal. No reemplaza evaluación ni diagnóstico médico profesional."
