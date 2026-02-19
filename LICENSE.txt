@@ -1,0 +1,48 @@
+SleepTracker Source-Available License v1.0
+Copyright (c) 2026 Juan Carlos Alcaraz.
+All Rights Reserved.
+
+1. Grant of Permission
+
+Subject to the terms of this License, the author grants a limited, non-exclusive, non-transferable, revocable license to:
+
+- Use the Software for personal, educational, and academic research purposes.
+- View and modify the source code for non-commercial purposes only.
+
+2. Prohibited Uses
+
+You may NOT:
+
+- Use the Software or any derivative work for commercial purposes.
+- Sell, sublicense, distribute, host, or provide the Software as part of a paid product or service.
+- Integrate the Software into any commercial environment.
+- Remove or modify copyright notices.
+- Use the Software as a medical device or for clinical decision-making.
+
+Commercial use requires explicit prior written permission from the author.
+
+3. Medical and Health Disclaimer
+
+The Software is intended strictly for informational, research, and educational purposes.
+
+It is NOT a medical device.
+It is NOT intended to diagnose, treat, cure, or prevent any disease or medical condition.
+It must NOT be used as a substitute for professional medical advice, diagnosis, or treatment.
+
+Always seek the advice of a qualified healthcare provider with any questions regarding a medical condition.
+
+4. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+5. Limitation of Liability
+
+In no event shall the author be liable for any claim, damages, or other liability arising from, out of, or in connection with the Software or its use.
+
+6. Termination
+
+This license automatically terminates if you violate any of its terms.
+
+7. Contact
+
+For commercial licensing inquiries, please contact the author through the contact section provided in the project's README file. 
