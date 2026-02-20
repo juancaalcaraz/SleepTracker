@@ -7,7 +7,9 @@ from services.heart_rate import calculate_bpm, classify_heart_rate
 from services.sleep_logger import save_record, load_history
 import altair as alt
 import pandas as pd
-
+@st.cache_data(ttl=600) # El ttl=600 limpia la memoria cada 10 minutos.
+def get_cached_history(path):
+    return load_history(path)
 # Inicializar modelo
 predictor = SleepPredictor(MODEL_PATH)
 
@@ -51,7 +53,6 @@ if pulses > 0:
         HEART_RATE_RANGES["high"]
     )
     st.info(f"Heart Rate estimado: {heart_rate} BPM ({hr_status})")
-#st.markdown("---")
 st.divider()
 st.subheader("2️⃣ Variables de sueño")
 st.markdown("Ingresa la cantidad de horas que dormiste (por ejemplo 7.5).")
@@ -75,7 +76,7 @@ if sleep_hours is not None:
 # Espacio visual
 st.markdown("---")
 
-# 🔵 Sección 3️⃣ Estrés
+# Sección Estrés.
 st.subheader("3️⃣ Nivel de Estrés")
 
 modo_estres = st.radio(
@@ -84,7 +85,7 @@ modo_estres = st.radio(
 )
 
 if modo_estres == "Ingreso rápido":
-    
+    st.info("Escala: 1 Bajo; 8 Alto ")
     stress_level = st.slider("Nivel de estrés (1-8)", 1, 8, 4)
     
 else:
@@ -105,6 +106,32 @@ else:
 can_predict = pulses > 0 and sleep_hours is not None
 if pulses == 0:
     st.warning("Por favor medí tu pulso antes de predecir.")
+# --- Agregado antes de la sección de Evaluación ---
+st.divider()
+st.subheader("4️⃣ Hábitos y Relato")
+
+# Opción A: Selección de etiquetas (Más estructurado)
+opciones_habitos = [
+    "Ejercicio intenso","Ejercicio liviano", "Meditación", "Uso de pantallas (Celular/TV)", 
+    "Cena pesada","Cena liviana", "Cafeína", "Alcohol", "Tabaco", "Mate", "Bebida energizante", "Te negro","Te verde o de hierbas",
+    "Lectura", "Ducha caliente", "Ducha fría", "Otro"
+]
+
+habitos_seleccionados = st.multiselect(
+    "¿Qué hiciste antes de dormir? (Máximo 3)",
+    options=opciones_habitos,
+    max_selections=3,
+    help="Seleccioná hasta 3 hábitos que creas que influyeron en tu descanso."
+)
+
+# Convertimos la lista de hábitos en un solo string separado por comas para el CSV
+habitos_str = ", ".join(habitos_seleccionados)
+st.subheader("4️⃣-B Relato del sueño")
+dream_text = st.text_area(
+    "¿Qué recordás de tu sueño? (Opcional)",
+    placeholder="Escribí acá que tipo de sueño tuviste, lo que recuerdes del sueño, sensaciones al despertar...",
+    help="Este texto servirá para futuros análisis de tópicos e IA."
+)
 st.markdown("### 🔎 Evaluación")
 if st.button("Predecir calidad del sueño", disabled=not can_predict, use_container_width=True):
 
@@ -123,13 +150,16 @@ if st.button("Predecir calidad del sueño", disabled=not can_predict, use_contai
         sleep_hours,
         stress_level,
         heart_rate,
-        prediction
+        prediction,
+        habitos_str,
+        dream_text 
     )
 
 
 st.subheader("📊 Historial")
 
-history = load_history(DATA_PATH)
+
+history = get_cached_history(DATA_PATH)
 
 if history is not None and not history.empty:
 
@@ -144,11 +174,11 @@ if history is not None and not history.empty:
 
     history["sleep_label"] = history["prediction"].map(label_map)
     latest = history.iloc[-1]
-
-    st.metric(
-        label="Calidad del último sueño registrado: ",
-        value=latest["sleep_label"]
-    )
+    if latest["sleep_label"]:
+        st.metric(
+            label="Calidad del último sueño registrado: ",
+            value=latest["sleep_label"]
+        )
 
     # Definir colores personalizados
     color_scale = alt.Scale(

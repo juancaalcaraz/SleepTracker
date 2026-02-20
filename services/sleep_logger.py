@@ -5,7 +5,7 @@ from datetime import datetime
 import os
 
 
-def save_record(path, sleep_hours, stress, hr, prediction):
+def save_record(path, sleep_hours, stress, hr, prediction,  habits="", text=""):
 
     # Crear carpeta si no existe
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -15,7 +15,9 @@ def save_record(path, sleep_hours, stress, hr, prediction):
         "sleep_hours": sleep_hours,
         "stress_level": stress,
         "heart_rate": hr,
-        "prediction": prediction
+        "prediction": prediction,
+        "habits": habits,
+        "dream_journal": text
     }
 
     df = pd.DataFrame([record])
