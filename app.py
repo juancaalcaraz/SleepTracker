@@ -9,7 +9,7 @@ from config import MODEL_PATH, DATA_PATH, CLASS_LABELS, HEART_RATE_RANGES
 from model.predictor import SleepPredictor
 from services.heart_rate import calculate_bpm, classify_heart_rate
 from services.sleep_logger import save_record, load_history
-from services.analytics import get_top_habits_by_quality
+from services.analytics import get_top_habits_by_quality, get_topics_by_quality
 
 # --- CONFIGURACIÓN DE CACHÉ ---
 @st.cache_data(ttl=600)
@@ -105,7 +105,6 @@ with tab_diario:
         # Esto limpia si el usuario apretó la barra espaciadora por error
         dream_text_clean = " ".join(dream_text_clean.split())
     
-        # 3. Mantenemos las mayúsculas para la lectura del usuario, 
     else:
         dream_text_clean = ""
 
@@ -178,6 +177,28 @@ with tab_stats:
                 for habit, count in top_buena:
                     st.write(f"- {habit} ({count})")
                 if not top_buena: st.write("Sin datos")
+        with tab_stats:
+
+            st.divider()
+            st.subheader("🧠 Tópicos según Calidad Onírica")
+            st.markdown("Identificamos los conceptos que aparecen en los relatos de tus sueños según cada tipo de descanso.")
+            st.caption("Metodología: Extracción de palabras clave mediante TF-IDF.")
+
+            cols = st.columns(3)
+            labels = ["Mala", "Regular", "Buena"]
+            colors = ["🔴", "🟡", "🟢"]
+
+            for i, col in enumerate(cols):
+                with col:
+                    st.markdown(f"**Temas en sueños: {labels[i]}**")
+                    topics = get_topics_by_quality(history, i)
+            
+                    if topics:
+                        for word, score in topics:
+                            # El score de TF-IDF lo mostramos como 'importancia'
+                            st.write(f"- {word.capitalize()}")
+                    else:
+                        st.info("Se necesitan más relatos para analizar esta categoría.")
 
     else:
         st.info("Aún no hay datos. Registra tu primer sueño para ver el gráfico.")
