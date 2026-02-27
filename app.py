@@ -4,11 +4,12 @@ import pandas as pd
 import altair as alt
 from datetime import datetime
 
-# Tus módulos internos
+# Importación de módulos internos.
 from config import MODEL_PATH, DATA_PATH, CLASS_LABELS, HEART_RATE_RANGES
 from model.predictor import SleepPredictor
 from services.heart_rate import calculate_bpm, classify_heart_rate
 from services.sleep_logger import save_record, load_history
+from services.analytics import get_top_habits_by_quality
 
 # --- CONFIGURACIÓN DE CACHÉ ---
 @st.cache_data(ttl=600)
@@ -150,5 +151,33 @@ with tab_stats:
         
         with st.expander("Ver tabla de datos completa"):
             st.dataframe(history[["date", "sleep_label", "sleep_hours", "habits", "dream_journal"]].sort_index(ascending=False))
+        with tab_stats:
+
+            st.subheader("📊 Hábitos vs. Calidad de Sueño")
+            st.markdown("Estos son los 3 hábitos más frecuentes según cómo dormiste:")
+    
+            col1, col2, col3 = st.columns(3)
+    
+            with col1:
+                st.error("🔴 Sueño Malo")
+                top_mala = get_top_habits_by_quality(history, 0)
+                for habit, count in top_mala:
+                    st.write(f"- {habit} ({count})")
+                if not top_mala: st.write("Sin datos")
+
+            with col2:
+                st.warning("🟡 Sueño Regular")
+                top_reg = get_top_habits_by_quality(history, 1)
+                for habit, count in top_reg:
+                    st.write(f"- {habit} ({count})")
+                if not top_reg: st.write("Sin datos")
+
+            with col3:
+                st.success("🟢 Sueño Bueno")
+                top_buena = get_top_habits_by_quality(history, 2)
+                for habit, count in top_buena:
+                    st.write(f"- {habit} ({count})")
+                if not top_buena: st.write("Sin datos")
+
     else:
         st.info("Aún no hay datos. Registra tu primer sueño para ver el gráfico.")
