@@ -3,6 +3,40 @@
 Sistema para registrar y llevar un historial de la calidad de tu sueño.  
 Genera métricas de la calidad predicha de tus sueños y analiza los temas recurrentes según el tipo de sueño.
 
+
+## 🌙 ¿Por qué usar Sleep Quality Tracker — Diario Onírico.?
+
+Sleep Quality Tracker transforma tu diario de sueños en una herramienta inteligente de análisis personal. No solo registra cómo dormiste: convierte tus experiencias nocturnas en información útil y accionable.
+
+🚀 Beneficios Clave
+📈 1. Seguimiento inteligente de la calidad del sueño
+
+El sistema genera una predicción de la calidad del sueño basada en modelos de Machine Learning, permitiendo visualizar tendencias y variaciones a lo largo del tiempo.
+
+🧠 2. Análisis automático de patrones y temas
+
+Mediante modelado de lenguaje natural, identifica temas recurrentes en tus sueños y los relaciona con distintos niveles de calidad de descanso.
+
+Esto permite descubrir relaciones como:
+
+Temas asociados a noches de sueño profundo.
+
+Patrones frecuentes en noches de baja calidad.
+
+Tendencias emocionales reflejadas en el contenido onírico.
+
+📊 3. Visualización histórica y métricas evolutivas
+
+El historial acumulado permite observar progresos, detectar cambios y evaluar el impacto de nuevos hábitos de sueño.
+
+🔍 4. De experiencia subjetiva a datos analizables
+
+Sleep Quality Tracker convierte descripciones narrativas en datos estructurados, facilitando el autoconocimiento a través de analítica basada en ML.
+
+🌱 5. Optimización progresiva del descanso
+
+Al comprender qué patrones están asociados a mejores o peores noches, el usuario puede ajustar rutinas y mejorar su higiene del sueño de forma más consciente.
+
 ## ⚠️ Health & Medical Disclaimer / Descargo de Responsabilidad Médica
 
 ### English
