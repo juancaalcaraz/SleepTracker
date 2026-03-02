@@ -2,6 +2,7 @@
 
 >Registra y lleva un historial de la calidad de tu sueño, genera métricas de la calidad predicha y analiza los temas recurrentes mediante modelado de temas.
 
+
 ## Sobre el proyecto
  ### Sleep Quality Tracker — Diario Onírico es un dashboard web diseñado para registrar experiencias oníricas y clasificar la calidad del descanso mediante Inteligencia Artificial. El sistema permite seleccionar hábitos pre-sueño para identificar correlaciones que mejoren la higiene del descanso. Además, mediante el registro de la narrativa onírica, el sistema genera un análisis de tópicos recurrentes, permitiendo al usuario reconocer patrones y temas frecuentes en sus sueños de manera automatizada.   
 -----------
@@ -53,6 +54,7 @@ Tus Temas: El sistema agrupa tus relatos para mostrarte cuáles son los temas qu
 
 > 💡 **Nota:** Para su correcto funcionamiento, se recomienda registrar los datos en el sistema inmediatamente **al despertar**.
 
+-------------
 
 ## 🚀 Instalación y Uso
 
