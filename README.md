@@ -1,9 +1,11 @@
 # Sleep Quality Tracker — Diario Onírico. 
 
 Sistema para registrar y llevar un historial de la calidad de tu sueño.  
-Genera métricas de la calidad predicha de tus sueños y analiza los temas recurrentes según el tipo de sueño.
-
-
+Genera métricas de la calidad predicha de tus sueños y analiza los temas recurrentes.
+-----------
+## Sobre el proyecto
+**Sleep Quality Tracker — Diario Onírico** es un dashboard web diseñado para registrar experiencias oníricas y clasificar la calidad del descanso mediante Inteligencia Artificial. El sistema permite seleccionar hábitos pre-sueño para identificar correlaciones que mejoren la higiene del descanso. Además, mediante el registro de la narrativa onírica, el sistema genera un análisis de tópicos recurrentes, permitiendo al usuario reconocer patrones y temas frecuentes en sus sueños de manera automatizada.   
+-----------
 ## 🌙 ¿Por qué usar Sleep Quality Tracker — Diario Onírico.?
 
 Sleep Quality Tracker transforma tu diario de sueños en una herramienta inteligente de análisis personal. No solo registra cómo dormiste: convierte tus experiencias nocturnas en información útil y accionable.
@@ -37,7 +39,7 @@ Sleep Quality Tracker convierte descripciones narrativas en datos estructurados,
 5. Optimización progresiva del descanso 🌱 
 
 Al comprender qué patrones están asociados a mejores o peores noches, el usuario puede ajustar rutinas y mejorar su higiene del sueño de forma más consciente.
-
+--------------
 ## 🚀 Instalación y Uso
 
 Para correr este proyecto localmente:
@@ -59,6 +61,7 @@ pip install -r requirements.txt
 ```
 streamlit run app.py
 ```
+-------------
 
 ## 🛠️ Stack Tecnológico y Arquitectura
 - Lenguaje: Python 3.9+
@@ -67,7 +70,7 @@ streamlit run app.py
 - NLP (Procesamiento de Lenguaje): TF-IDF Vectorization con N-grams (1, 2) para análisis de narrativa onírica.
 - Visualización: Altair (Gráficos dinámicos y reactivos).
 - Almacenamiento: Pandas (Gestión de base de datos local en CSV optimizada para baja memoria).
-
+--------------- 
 ## ⚠️ Health & Medical Disclaimer / Descargo de Responsabilidad Médica
 
 ### English
