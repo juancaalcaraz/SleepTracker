@@ -8,7 +8,7 @@
 -----------
 ## 🌙 ¿Por qué usar Sleep Quality Tracker — Diario Onírico.?
 
-Sleep Quality Tracker transforma tu diario de sueños en una herramienta inteligente de análisis personal. No solo registra cómo dormiste: convierte tus experiencias nocturnas en información útil y accionable.
+Sleep Quality Tracker transforma tu diario de sueños en una herramienta inteligente de análisis personal. No solo registra cómo dormiste, convierte tus experiencias nocturnas en información útil y accionable.
 
 Beneficios Clave 🚀:
 
