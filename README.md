@@ -39,27 +39,24 @@ Sleep Quality Tracker convierte descripciones narrativas en datos estructurados,
 Al comprender qué patrones están asociados a mejores o peores noches, el usuario puede ajustar rutinas y mejorar su higiene del sueño de forma más consciente.
 
 ## 🚀 Instalación y Uso
-Para correr este proyecto localmente (optimizado para equipos de gama baja):
+
+Para correr este proyecto localmente:
 1. Clonar el repositorio:
 ```
-bash
 git clone https://github.com/juancaalcaraz/SleepTracker.git
 cd SleepTracker
 ```
 2. Crear entorno virtual:
 ```
-bash
 python -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
 ```
 3. Instalar dependencias:
 ```
-bash
 pip install -r requirements.txt
 ```
 4. Ejecutar la App:
 ```
-bash
 streamlit run app.py
 ```
 
