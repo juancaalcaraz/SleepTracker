@@ -1,6 +1,10 @@
 # Sleep Quality Tracker — Diario Onírico. 
 
 >Registra y lleva un historial de la calidad de tu sueño, genera métricas de la calidad predicha y analiza los temas recurrentes mediante modelado de temas.
+![banner](demo/banner.png)
+![Python](https://img.shields.io)
+![Streamlit](https://img.shields.io)
+![ML](https://img.shields.io)
 
 
 ## Sobre el proyecto
