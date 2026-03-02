@@ -126,4 +126,14 @@ Al utilizar este software, usted reconoce y acepta que:
 
 
 
+## Contact/ Contacto
+You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User LinkedIn**](https://www.linkedin.com/in/juan-carlos-alcaraz-424a571b4/) 
+
+Or via E-mail: 
+![Conntacot](demo/Contact.png)
+
+-----------------
+# Sobre mí
+
+¡Hola! Me llamo Juan Alcaraz y soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting. Creo dashboards para la toma de decisiones estratégicas. Aplico soluciones de Inteligencia Artificial y entreno modelos de Machine Learning y Deep Learning para los negocios que lo requieran. 
 
