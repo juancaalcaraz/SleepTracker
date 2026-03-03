@@ -116,6 +116,75 @@ streamlit run app.py
 - Almacenamiento: Pandas (Gestión de base de datos local en CSV optimizada para baja memoria).
 
 --------------- 
+## 🧠 Modelo de Machine Learning
+
+### 📊 Enfoque del Problema
+
+El sistema aborda la calidad del sueño como un problema de **clasificación multiclase**, utilizando tres variables principales:
+
+- Frecuencia cardíaca
+- Nivel de estrés
+- Horas dormidas
+
+No se incluyeron hábitos ni narrativa onírica dentro del modelo predictivo para evitar introducir ruido o sesgos no controlados.  
+El objetivo fue mantener un modelo simple, interpretable y coherente con la cantidad de datos disponibles.
+
+---
+
+### 🔎 Estrategia de Validación
+
+Para garantizar una evaluación robusta y evitar sobreajuste, se utilizó:
+
+- **Validación Cruzada Estratificada (Stratified K-Fold)**
+  - `n_splits = 10`
+  - `shuffle = True`
+  - `random_state = 42`
+
+Este enfoque permite mantener la proporción de clases en cada partición y reducir la variabilidad en la estimación del rendimiento.
+
+No se utilizaron técnicas que generen fuga de datos (data leakage).  
+El preprocesamiento y la validación fueron realizados correctamente dentro de cada fold.
+
+---
+
+### 🧪 Modelos Evaluados
+
+Se compararon distintos algoritmos utilizando **Balanced Accuracy** como métrica principal, debido al desbalance en las clases:
+
+| Modelo                | Balanced Accuracy (CV) |
+|-----------------------|------------------------|
+| Logistic Regression   | 0.739 ± 0.157          |
+| Random Forest         | 0.994 ± 0.008          |
+| Ordinal Regression    | 0.718 ± 0.137          |
+| XGBoost               | 0.996 ± 0.007          |
+
+Aunque XGBoost obtuvo el mejor promedio en validación cruzada inicial, se priorizó Random Forest por estar integrado en Scikit-Learn y no necesitar una librería externa para su implementación. 
+
+---
+
+### ⚙️ Optimización de Hiperparámetros
+
+Se realizó búsqueda de hiperparámetros para el modelo final utilizando las tres variables seleccionadas.
+
+- **Mejor Balanced Accuracy (Cross-Validation, 3 predictores):** 0.916  
+- **Balanced Accuracy en conjunto de validación:** 1.0  
+
+> El valor perfecto en validación debe interpretarse con cautela, ya que el tamaño reducido del dataset puede favorecer resultados optimistas. Por esta razón, el rendimiento en validación cruzada (0.916) se considera una estimación más representativa.
+
+---
+
+### 🎯 Modelo Final
+
+El modelo implementado en la aplicación:
+
+- Utiliza tres predictores clave.
+- Fue validado mediante 10-fold Stratified Cross-Validation.
+- No presenta fuga de datos.
+- Prioriza interpretabilidad y estabilidad sobre complejidad excesiva.
+
+El objetivo no fue maximizar métricas a cualquier costo, sino desarrollar un sistema coherente con el tamaño y naturaleza de los datos disponibles.
+
+-------------
 
 ## 🧪 Limitaciones 
 
