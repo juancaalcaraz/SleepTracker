@@ -90,6 +90,47 @@ streamlit run app.py
 
 --------------- 
 
+## Limitaciones 🧪
+
+### Limitaciones del Modelo ⚠️ 
+
+Como todo sistema basado en Machine Learning, este proyecto presenta ciertas limitaciones que deben considerarse al interpretar sus resultados:
+
+- **Dataset reducido:** El modelo fue entrenado con un conjunto de datos limitado (uso personal / experimental), lo que puede afectar su capacidad de generalización.
+- **Subjetividad en las etiquetas:** La calidad del sueño registrada depende de la autopercepción del usuario, lo que introduce variabilidad subjetiva.
+- **Variables limitadas para la clasificación:**  
+  Actualmente, el modelo utiliza únicamente:
+  - Frecuencia cardíaca
+  - Nivel de estrés
+  - Horas dormidas  
+
+  Esto permite una **aproximación razonable al estado general de descanso**, pero no contempla métricas fisiológicas avanzadas como variabilidad de la frecuencia cardíaca (HRV), actividad cerebral (EEG), ciclos REM o mediciones clínicas especializadas.
+- **No es un diagnóstico médico:**  
+  Debido a la simplicidad del modelo y a la naturaleza de los datos utilizados, los resultados deben interpretarse como una estimación orientativa y no como una evaluación clínica definitiva.
+- **No validado en población clínica:**  
+  El modelo no ha sido probado en contextos médicos ni con pacientes diagnosticados con trastornos del sueño.
+
+> Este sistema está diseñado como herramienta exploratoria y de autoconocimiento, no como instrumento médico.
+
+------------------
+
+## Privacidad y Datos 🔒 
+
+### Privacidad 🔐
+
+La privacidad del usuario es una prioridad en el diseño del sistema.
+
+- Los datos se almacenan **localmente** en archivos CSV.
+- No se envía información a servidores externos.
+- No se recopilan datos personales identificables.
+- No se utilizan servicios de terceros para procesamiento o almacenamiento.
+
+El proyecto funciona completamente en entorno local, lo que garantiza que el usuario mantiene control total sobre su información.
+
+> Sleep Quality Tracker está diseñado como una herramienta personal de análisis, priorizando simplicidad, transparencia y control de datos.
+
+-----------------
+
 ## ⚠️ Health & Medical Disclaimer / Descargo de Responsabilidad Médica
 
 ### English
