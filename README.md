@@ -6,7 +6,34 @@
 ## Sobre el proyecto
  ### Sleep Quality Tracker — Diario Onírico es un dashboard web diseñado para registrar experiencias oníricas y clasificar la calidad del descanso mediante Inteligencia Artificial. El sistema permite seleccionar hábitos pre-sueño para identificar correlaciones que mejoren la higiene del descanso. Además, mediante el registro de la narrativa onírica, el sistema genera un análisis de tópicos recurrentes, permitiendo al usuario reconocer patrones y temas frecuentes en sus sueños de manera automatizada.   
 -----------
-## 🌙 ¿Por qué usar Sleep Quality Tracker — Diario Onírico.?
+
+## 💡 Motivación del Proyecto
+
+Este proyecto nació inicialmente como un ejercicio de análisis exploratorio de datos utilizando el dataset [**Sleep Health and Lifestyle Dataset (Kaggle)**](https://www.kaggle.com/datasets/uom190346a/sleep-health-and-lifestyle-dataset).
+
+El objetivo original era identificar predictores relevantes para la calidad del sueño y construir un modelo de clasificación orientado a variables de salud. Sin embargo, durante el proceso de EDA (Exploratory Data Analysis), se evidenció que el dataset no contaba con suficientes variables clínicas o biométricas avanzadas como para desarrollar un clasificador con orientación médica sólida.
+
+En lugar de forzar un enfoque clínico con información limitada, decidí adoptar una perspectiva diferente: construir un modelo simple pero coherente, acompañado de una interfaz interactiva que permitiera darle contexto y utilidad práctica a la predicción.
+
+A medida que el desarrollo avanzaba, el proyecto evolucionó hacia algo más interesante que una simple clasificación:
+
+- Se incorporó una sección de hábitos pre-sueño para que el usuario pueda registrar conductas que potencialmente influyen en su descanso.
+- Aunque estos hábitos no forman parte del modelo predictivo, se analizan mediante conteo y frecuencia según la calidad de sueño predicha, permitiendo identificar patrones conductuales personales.
+- Se añadió un módulo de narrativa onírica donde el usuario puede registrar sus sueños.
+- Mediante técnicas de modelado de temas (topic modeling), el sistema identifica los tres tópicos más recurrentes asociados a cada nivel de calidad de sueño predicho.
+
+De esta manera, el proyecto pasó de ser un ejercicio de clasificación supervisada a convertirse en una herramienta de exploración personal basada en datos, combinando:
+
+- Machine Learning estructurado
+- Procesamiento de Lenguaje Natural
+- Análisis de hábitos
+- Visualización interactiva
+
+El enfoque final no es clínico, sino analítico y exploratorio: transformar experiencias subjetivas en información estructurada que facilite el autoconocimiento.
+
+------------------
+
+## 🌙 ¿Por qué usar Sleep Quality Tracker — Diario Onírico?
 
 Sleep Quality Tracker transforma tu diario de sueños en una herramienta inteligente de análisis personal. No solo registra cómo dormiste, convierte tus experiencias nocturnas en información útil y accionable.
 
@@ -90,9 +117,9 @@ streamlit run app.py
 
 --------------- 
 
-## Limitaciones 🧪
+## 🧪 Limitaciones 
 
-### Limitaciones del Modelo ⚠️ 
+### ⚠️ Limitaciones del Modelo  
 
 Como todo sistema basado en Machine Learning, este proyecto presenta ciertas limitaciones que deben considerarse al interpretar sus resultados:
 
@@ -114,9 +141,9 @@ Como todo sistema basado en Machine Learning, este proyecto presenta ciertas lim
 
 ------------------
 
-## Privacidad y Datos 🔒 
+## 🔒  Privacidad y Datos 
 
-### Privacidad 🔐
+### 🔐 Privacidad 
 
 La privacidad del usuario es una prioridad en el diseño del sistema.
 
@@ -174,7 +201,7 @@ Or via E-mail:
 ![Conntacot](demo/Contact.png)
 
 -----------------
-# Sobre mí
+## Sobre mí
 
 ¡Hola! Me llamo Juan Alcaraz y soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting. Creo dashboards para la toma de decisiones estratégicas. Aplico soluciones de Inteligencia Artificial y entreno modelos de Machine Learning y Deep Learning para los negocios que lo requieran. 
 
