@@ -89,12 +89,12 @@ El sistema te guía paso a paso para transformar tus sensaciones en datos útile
 5. Predicción e Inteligencia 🔍:
  La IA analiza tus datos y te da una estimación sobre la calidad de tu descanso.
 Tus Temas: El sistema agrupa tus relatos para mostrarte cuáles son los temas que más se repiten en tus sueños "buenos", "regulares" y "malos".
+### ejemplo: Última etiqueta predicha.
+![etiqueta predicha](demo/kpi1.png)
+### ejemplo: Hábitos recurrentes. 
+![modelado de temas y habitos recurrentes](demo/kpi2.png)
 
-| Predicción de Calidad | Tópicos y Hábitos Recurrentes |
-| :---: | :---: |
-| ![etiqueta predicha](demo/kpi1.png) | ![modelado de temas y habitos recurrentes](demo/kpi2.png) |
-
-> 💡 **Nota:** Para su correcto funcionamiento, se recomienda registrar los datos en el sistema inmediatamente **al despertar**.
+> 💡 **Nota:** Para su correcto funcionamiento, se recomienda registrar los datos en el sistema inmediatamente **al despertar**. Para el modelado de temas se necesitan más de 30 registros de sueños, una ves se completan estos registros, los tópicos aparecerán en la tabla correspondiente.
 
 -------------
 
