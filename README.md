@@ -73,6 +73,9 @@ Al comprender qué patrones están asociados a mejores o peores noches, el usuar
 ## ⚙️ ¿Cómo funciona?
 El sistema te guía paso a paso para transformar tus sensaciones en datos útiles para tu bienestar:
 1. Medición de Pulso 💓: Usá el cronómetro integrado de 15 segundos para contar tus pulsaciones y la app calculará automáticamente tu ritmo cardíaco.
+----------------------------------------
+| ![Medición de pulso](demo/paso1.png) |
+----------------------------------------
 2. Tu Nivel de Estrés 🧠: Podés registrar cómo te sentís de forma rápida o responder un breve cuestionario que te ayudará a identificar tu carga mental.
 3. Diario de Hábitos y Sueño 📝: Cargás tus horas de descanso y seleccionás qué hiciste antes de dormir (¿Tomaste café? ¿Leíste un libro? ¿Usaste el celular?). Esto sirve para identificar qué rutinas te ayudan a descansar mejor.
 4. Tu Relato Onírico 🌙: Escribís lo que recordás de tus sueños. La narrativa es clave para descubrir qué temas ocupan tu mente mientras descansás.
