@@ -78,15 +78,21 @@ El sistema te guía paso a paso para transformar tus sensaciones en datos útile
 ----------------------------------------
 2. Tu Nivel de Estrés 🧠: Podés registrar cómo te sentís de forma rápida o responder un breve cuestionario que te ayudará a identificar tu carga mental.
 ----------------------------------------
-| ![Estres y Hábitos](demo/paso2y3.png) |
+| ![Estres y Hábitos](demo/paso2y3.png)|
 ----------------------------------------
 3. Diario de Hábitos y Sueño 📝: Cargás tus horas de descanso y seleccionás qué hiciste antes de dormir (¿Tomaste café? ¿Leíste un libro? ¿Usaste el celular?). Esto sirve para identificar qué rutinas te ayudan a descansar mejor.
 
 4. Tu Relato Onírico 🌙: Escribís lo que recordás de tus sueños. La narrativa es clave para descubrir qué temas ocupan tu mente mientras descansás.
+----------------------------------------
+| ![Relato y predictor](demo/paso4.png)|
+----------------------------------------
 5. Predicción e Inteligencia 🔍:
-Tu Calidad: La IA analiza tus datos y te da una estimación sobre la calidad de tu descanso.
+ La IA analiza tus datos y te da una estimación sobre la calidad de tu descanso.
 Tus Temas: El sistema agrupa tus relatos para mostrarte cuáles son los temas que más se repiten en tus sueños "buenos", "regulares" y "malos".
 
+------------------------------------------------------------------------------------------------
+| ![etiqueta predicha](demo/kpi1.png)|![modelado de temas y habitos recurrentes](demo/kpi2.png)| 
+------------------------------------------------------------------------------------------------
 > 💡 **Nota:** Para su correcto funcionamiento, se recomienda registrar los datos en el sistema inmediatamente **al despertar**.
 
 -------------
