@@ -126,7 +126,9 @@ streamlit run app.py
 - Lenguaje: Python 3.9+
 - Interfaz: Streamlit (Dashboard interactivo y ligero).
 - Machine Learning: Scikit-learn (Random Forest Classifier).
-- NLP (Procesamiento de Lenguaje): TF-IDF Vectorization con N-grams (1, 2) para análisis de narrativa onírica.
+- NLP (Procesamiento de Lenguaje): Topic modeling utilizando TF-IDF como vectorización y
+  Non-Negative Matrix Factorization (NMF) para identificar
+  patrones semánticos en relatos oníricos.
 - Visualización: Altair (Gráficos dinámicos y reactivos).
 - Almacenamiento: Pandas (Gestión de base de datos local en CSV optimizada para baja memoria).
 

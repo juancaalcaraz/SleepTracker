@@ -182,23 +182,32 @@ with tab_stats:
             st.divider()
             st.subheader("🧠 Tópicos según Calidad Onírica")
             st.markdown("Identificamos los conceptos que aparecen en los relatos de tus sueños según cada tipo de descanso.")
-            st.caption("Metodología: Extracción de palabras clave mediante TF-IDF.")
+            st.caption("Metodología: Extracción de palabras clave mediante TF-IDF + NMF.")
 
             cols = st.columns(3)
             labels = ["Mala", "Regular", "Buena"]
             colors = ["🔴", "🟡", "🟢"]
 
+        
             for i, col in enumerate(cols):
                 with col:
-                    st.markdown(f"**Temas en sueños: {labels[i]}**")
+
+                    st.markdown(f"**{colors[i]} Temas en sueños: {labels[i]}**")
+
                     topics = get_topics_by_quality(history, i)
-            
+
                     if topics:
-                        for word, score in topics:
-                            # El score de TF-IDF lo mostramos como 'importancia'
-                            st.write(f"- {word.capitalize()}")
+
+                        for topic in topics:
+
+                            st.markdown(f"**Tópico {topic['topic_id'] + 1}**")
+
+                            for word, score in topic["words"]:
+                                st.write(f"- {word.capitalize()}")
+
+                            st.write("")
+
                     else:
                         st.info("Se necesitan más relatos para analizar esta categoría.")
-
     else:
         st.info("Aún no hay datos. Registra tu primer sueño para ver el gráfico.")
