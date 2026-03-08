@@ -32,7 +32,39 @@ STOPWORDS_ES = {
     "mi", "tu", "su", "me", "te", "se", "lo", "yo", "nos", "soñé", "sueño", "había", "estaba", "tenía"
 }
 
-def get_topics_by_quality(df, quality_label, n_topics=3, n_top_words=5):
+def find_optimal_topics(tfidf_matrix, min_topics=2, max_topics=6):
+    """
+    Función para encontrar el número optimo de tópicos.
+    Args:
+        tfidf_matrix: matriz del vector tf-idf.
+        min_topics: número mínimo de tópicos.
+        max_topics: número máximo de tópicos.
+    """
+
+    best_model = None
+    best_k = min_topics
+    best_score = float("inf")
+
+    for k in range(min_topics, max_topics + 1):
+
+        model = NMF(
+            n_components=k,
+            random_state=42,
+            init="nndsvd"
+        )
+
+        W = model.fit_transform(tfidf_matrix)
+
+        score = model.reconstruction_err_
+
+        if score < best_score:
+            best_score = score
+            best_model = model
+            best_k = k
+
+    return best_model, best_k
+
+def get_topics_by_quality(df, quality_label, min_topics=2, max_topics=6, n_top_words=5):
     """
     Filtra por calidad de sueño y extrae tópicos usando TF-IDF + NMF.
     
@@ -41,20 +73,19 @@ def get_topics_by_quality(df, quality_label, n_topics=3, n_top_words=5):
         quality_label: etiqueta de calidad.
         n_topics: número de tópicos a extraer
         n_top_words: palabras más representativas por tópico
+        min_topics: número míimo de tópicos.
+        max_topics: número máximo de típicos.
     """
-
-    # 1. Filtrar por calidad
     subset = df[df["prediction"] == quality_label].copy()
     textos = subset["dream_journal"].dropna().astype(str).tolist()
 
-    # 2. Validación mínima
     textos_validos = [t for t in textos if len(t.strip()) > 10]
 
-    if len(textos_validos) < 4:
+    if len(textos_validos) < 3:
         return None
 
     try:
-        # 3. Vectorización TF-IDF
+
         vectorizer = TfidfVectorizer(
             stop_words=STOPWORDS_ES,
             max_features=1000,
@@ -63,32 +94,28 @@ def get_topics_by_quality(df, quality_label, n_topics=3, n_top_words=5):
 
         tfidf_matrix = vectorizer.fit_transform(textos_validos)
 
-        # 4. Modelo NMF
-        nmf_model = NMF(
-            n_components=n_topics,
-            random_state=42
+        nmf_model, best_k = find_optimal_topics(
+            tfidf_matrix,
+            min_topics=min_topics,
+            max_topics=max_topics
         )
-
-        W = nmf_model.fit_transform(tfidf_matrix)
-        H = nmf_model.components_
 
         feature_names = vectorizer.get_feature_names_out()
 
         topics = []
 
-        # 5. Extraer palabras principales por tópico
-        for topic_idx, topic in enumerate(H):
+        for topic_idx, topic in enumerate(nmf_model.components_):
 
             top_indices = topic.argsort()[-n_top_words:][::-1]
 
-            top_words = [
+            words = [
                 (feature_names[i], float(topic[i]))
                 for i in top_indices
             ]
 
             topics.append({
                 "topic_id": topic_idx,
-                "words": top_words
+                "words": words
             })
 
         return topics
